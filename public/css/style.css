@@ -1,3 +1,7 @@
+body{
+    scroll-behavior: smooth;
+}
+
 .mt-50{
     margin-top: 5em;
 }
@@ -9,3 +13,13 @@
 .ml-50{
     margin-left: 5em;
 }
+.mt-120{
+    margin-top: 12em;
+}
+.font-size-36{
+    font-size: 36px;
+}
+.font-size-50{
+    font-size: 50px;
+}
+

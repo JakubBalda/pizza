@@ -14,7 +14,6 @@
         <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="stylesheet" href="css/css/fontello.css" type="text/css">
-
     </head>
     <body class="bg-light">
             <div class="page-wrapper with-navbar">
@@ -28,7 +27,7 @@
 
                     <ul class="navbar-nav d-none d-md-flex font-weight-semi-bold">
                         <li class="new-item active mt-auto mb-auto">
-                            <a href="{{ url('/menu') }}" class="nav-link">Menu</a>
+                            <a href="#kontakt" class="nav-link">Menu</a>
                         </li>
                         <li class="new-item active mt-auto mb-auto">
                             <a href="#" class="nav-link">Dostawa</a>
@@ -37,7 +36,7 @@
                             <a href="#" class="nav-link">Promocje</a>
                         </li>
                         <li class="new-item active mt-auto mb-auto">
-                            <a href="#kontakt" class="nav-link">Kontakt</a>
+                            <a href="#" class="nav-link">Kontakt</a>
                         </li>
                         
                     </ul>
@@ -51,37 +50,34 @@
 
             <div class="content-wrapper">
                 
-                <div class="d-flex justify-content-around h-full">
-                    <div class="content h-25 mt-70">
-                        <div class="card shadow">
-                            <h2 class="card-title">Nasze pizze</h2>
-                            <p>Zobacz naszą ofertę</p>
-                            <img src="img/pizza.jpg" class="img-fluid" alt="pizza"/>
-                            <div class=" position-absolute right-0 m-15">
-                                <a href="{{ url('/menu') }}"><button class="btn btn-primary">Zobacz ofertę</button></a>
+                <div class="mt-50 d-flex flex-column h-full">
+                    <div class="content">
+                        <h1 class="content-title ml-5 font-size-36">Menu</h1>
+                    </div>
+                    <div class="card mt-10 shadow">
+                    <div class="container-fluid text-uppercase">
+                            <div class="row align-self-center">
+                                <div class="col-2 align-self-center">
+                                    <img class="round" src="img/pizza-kurczak.jpg"/>
+                                </div>
+                                <div class="col-4 d-flex flex-column align-self-center">
+                                    <div class="font-size-20">1. Kurczak</div>
+                                    <div class="font-size-4 text-lowercase">Grillowany kurczak, kukurydza, mozzarella, ziołowy sos pomidorowy</div>
+                                </div>
+                                <div class="col-5 d-flex align-self-center justify-content-center font-size-20">
+                                    <div class="m-20">21,50 zł</div>
+                                    <div class="m-20">29,50 zł</div>
+                                    <div class="m-20">41,50 zł</div>
+                                </div>
+                                <div class="col-1 align-self-center">
+                                    <button class="btn btn-success d-flex align-self-center">
+                                        <i class="icon-basket"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="mt-120">
-                        <div class="card shadow">
-                            <h2 class="card-title">Promocje</h2>
-                            <img src="img/pizza-promotion.png" class="img-fluid" alt="pizza"/>
-                            <div class=" position-absolute right-0 m-15">
-                                <a href="#"><button class="btn btn-primary">Sprawdź</button></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-120">
-                        <div class="card shadow">
-                            <h2 class="card-title">Kontakt</h2>
-                            <img src="img/pizza-phone.jpg" class="img-fluid" alt="pizza"/>
-                            <div class=" position-absolute right-0 m-15">
-                                <a href="#kontakt"><button class="btn btn-primary">Zadzwoń</button></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="card mt-10"></div>
                 </div>
 
                 <div id="kontakt" class="d-flex w-full h-150 bg-dark-light text-light">
@@ -118,7 +114,6 @@
                         <span>&copy: Wszelkie prawa zastrzeżone</span>
                     </footer>
                 </div>
-            </div>
 
             
                 
