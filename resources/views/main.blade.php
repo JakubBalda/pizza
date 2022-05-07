@@ -19,7 +19,7 @@
     <body class="bg-light">
             <div class="page-wrapper with-navbar">
                 <nav class="navbar ">
-                    <a href="{{ url('/') }}" class="navbar-brand">
+                    <a href="#main" class="navbar-brand">
                         <img src="img/pizza-navbar.png"/>
                         Grande Pizza 
                     </a>
@@ -33,17 +33,17 @@
                         <li class="new-item active mt-auto mb-auto">
                             <a href="#dostawa" class="nav-link">Dostawa</a>
                         </li>
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="#" class="nav-link">Promocje</a>
-                        </li>
+                        
                         <li class="new-item active mt-auto mb-auto">
                             <a href="#kontakt" class="nav-link">Kontakt</a>
                         </li>
                         
                     </ul>
-                    <a href="#" class="text-white ml-auto"><button class="btn btn-primary">
-                        <i class="icon-login">Zaloguj się</i>
+                    
+                    <a href="{{ url('/login') }}" class="text-white ml-auto mr-15"><button class="btn btn-primary">
+                        <i class="icon-login"> Zaloguj się</i>
                     </button></a>
+
                 </nav>
 
                 
@@ -51,7 +51,7 @@
 
             <div class="content-wrapper">
                 
-                <div class="d-flex justify-content-around h-full">
+                <div class="d-flex justify-content-around h-full" id="main">
                     <div class="content h-25 mt-70">
                         <div class="card shadow">
                             <h2 class="card-title">Nasze pizze</h2>
@@ -65,10 +65,10 @@
 
                     <div class="mt-120">
                         <div class="card shadow">
-                            <h2 class="card-title">Promocje</h2>
+                            <h2 class="card-title">Dostawa</h2>
                             <img src="img/pizza-promotion.png" class="img-fluid" alt="pizza"/>
                             <div class=" position-absolute right-0 m-15">
-                                <a href="#"><button class="btn btn-primary">Sprawdź</button></a>
+                                <a href="#dostawa"><button class="btn btn-primary">Sprawdź</button></a>
                             </div>
                         </div>
                     </div>

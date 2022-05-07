@@ -27,22 +27,22 @@
 
                     <ul class="navbar-nav d-none d-md-flex font-weight-semi-bold">
                         <li class="new-item active mt-auto mb-auto">
-                            <a href="#kontakt" class="nav-link">Menu</a>
+                            <a href="{{ url('/menu') }}" class="nav-link">Menu</a>
                         </li>
                         <li class="new-item active mt-auto mb-auto">
-                            <a href="#" class="nav-link">Dostawa</a>
+                            <a href="{{ url('/') }}#dostawa" class="nav-link">Dostawa</a>
                         </li>
+                        
                         <li class="new-item active mt-auto mb-auto">
-                            <a href="#" class="nav-link">Promocje</a>
-                        </li>
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="#" class="nav-link">Kontakt</a>
+                            <a href="{{ url('/') }}#kontakt" class="nav-link">Kontakt</a>
                         </li>
                         
                     </ul>
-                    <a href="#" class="text-white ml-auto"><button class="btn btn-primary">
-                        <i class="icon-login">Zaloguj się</i>
+                    
+                    <a href="{{ url('/login') }}" class="text-white ml-auto  mr-15"><button class="btn btn-primary">
+                        <i class="icon-login"> Zaloguj się</i>
                     </button></a>
+
                 </nav>
 
                 
