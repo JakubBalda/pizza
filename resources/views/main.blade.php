@@ -39,10 +39,14 @@
                         </li>
                         
                     </ul>
+
+                    @isset($role)<button onclick="location='user'" class="btn btn-primary">{{$role}}</button>@endif
                     
-                    <a href="{{ url('/login') }}" class="text-white ml-auto mr-15"><button class="btn btn-primary">
+                    @if(PHP_SESSION_NONE)<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
                         <i class="icon-login"> Zaloguj się</i>
-                    </button></a>
+                    </button>@else<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
+                        <i class="icon-login"> Zaloguj się</i>
+                    </button>@endif
 
                 </nav>
 
@@ -58,7 +62,7 @@
                             <p>Zobacz naszą ofertę</p>
                             <img src="img/pizza.jpg" class="img-fluid" alt="pizza"/>
                             <div class=" position-absolute right-0 m-15">
-                                <a href="{{ url('/menu') }}"><button class="btn btn-primary">Zobacz ofertę</button></a>
+                                <button onclick="location='menu'" class="btn btn-primary">Zobacz ofertę</button>
                             </div>
                         </div>
                     </div>
@@ -68,7 +72,7 @@
                             <h2 class="card-title">Dostawa</h2>
                             <img src="img/pizza-promotion.png" class="img-fluid" alt="pizza"/>
                             <div class=" position-absolute right-0 m-15">
-                                <a href="#dostawa"><button class="btn btn-primary">Sprawdź</button></a>
+                                <button onclick="location='#dostawa'" class="btn btn-primary">Sprawdź</button>
                             </div>
                         </div>
                     </div>
@@ -78,7 +82,7 @@
                             <h2 class="card-title">Kontakt</h2>
                             <img src="img/pizza-phone.jpg" class="img-fluid" alt="pizza"/>
                             <div class=" position-absolute right-0 m-15">
-                                <a href="#kontakt"><button class="btn btn-primary">Zadzwoń</button></a>
+                                <button onclick="location='#kontakt'" class="btn btn-primary">Zadzwoń</button>
                             </div>
                         </div>
                     </div>

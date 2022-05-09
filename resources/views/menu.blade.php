@@ -39,9 +39,9 @@
                         
                     </ul>
                     
-                    <a href="{{ url('/login') }}" class="text-white ml-auto  mr-15"><button class="btn btn-primary">
+                    <button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
                         <i class="icon-login"> Zaloguj się</i>
-                    </button></a>
+                    </button>
 
                 </nav>
 

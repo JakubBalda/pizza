@@ -39,7 +39,7 @@
                         
                     </ul>
                     
-                    <a href="#" class="text-white ml-auto  mr-15"><button class="btn btn-primary">
+                    <button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
                         <i class="icon-login"> Zaloguj się</i>
                     </button></a>
 
@@ -50,104 +50,32 @@
 
             <div class="content-wrapper">
                 
-                <div class="d-flex h-full w-full">
+                <div class="d-flex h-full w-full justify-content-center">
 
-                    <div class="d-flex justify-content-center w-half">
                         <div class="card bg-white h-550 mt-120 shadow">
-                            <form action="" method="">
-                                <h2 class="content-title">Rejestracja</h2>
-
-                                <div class="form-row row-eq-spacing-sm">
-                                    <div class="col-sm">
-                                        <label for="name" class="required">Imię</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Imię" required="required">
-                                    </div>
-                                    <div class="col-sm">
-                                        <label for="surname" class="required">Nazwisko</label>
-                                        <input type="text" class="form-control" id="surname" placeholder="Nazwisko" required="required">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row row-eq-spacing-sm">
-                                    <div class="col-sm">
-                                        <label for="streat" class="required">Ulica</label>
-                                        <input type="text" class="form-control" id="streat" placeholder="Ulica" required="required">
-                                    </div>
-                                    <div class="col-sm">
-                                        <label for="hosue" class="required">Nr domu</label>
-                                        <input type="text" class="form-control" id="house" placeholder="Nr domu" required="required">
-                                    </div>
-                                    <div class="col-sm">
-                                        <label for="flat">Nr mieszkania</label>
-                                        <input type="text" class="form-control" id="flat" placeholder="Nr mieszkania">
-                                    </div>
-                                </div>
-
-                                <div class="form-row row-eq-spacing-sm">
-                                    <div class="col-sm">
-                                        <label for="town" class="required">Miasto</label>
-                                        <input type="text" class="form-control" id="town" placeholder="Miasto" required="required">
-                                    </div>
-                                    <div class="col-sm">
-                                        <label for="postal" class="required">Kod pocztowy</label>
-                                        <input type="text" class="form-control" id="postal" placeholder="Kod pocztowy" required="required">
-                                    </div>
-                                </div>
-
-                                <div class="form-row row-eq-spacing-sm">
-                                    <div class="col-sm">
-                                        <label for="login-reg" class="required">Login</label>
-                                        <input type="text" class="form-control" id="login-reg" placeholder="Login" required="required">
-                                    </div>
-                                    <div class="col-sm">
-                                        <label for="password-reg" class="required">Hasło</label>
-                                        <input type="password" class="form-control" id="password-reg" placeholder="Password" required="required">
-                                    </div>
-                                </div>
-
-                                <div class="form-row row-eq-spacing-sm">
-                                    <div class="col-sm">
-                                        <label for="phone" class="required">Nr telefonu</label>
-                                        <input type="text" class="form-control" id="phone" placeholder="Nr telefonu" required="required">
-                                    </div>
-                                    <div class="col-sm">
-                                        <label for="e-mail" class="required">E-mail</label>
-                                        <input type="text" class="form-control" id="e-mail" placeholder="E-mail" required="required">
-                                    </div>
-                                </div>
-
-                                <div class="text-right">
-                                    <input type="submit" class="btn btn-primary" value="Zarejestruj">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center w-half">
-                        <div class="card bg-white h-550 mt-120 shadow">
-                            <form action="" method="">
+                            <form action="loginSession" method="get">
                                 <h2 class="content-title">Logowanie</h2>
                                 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="login-log" class="required">Login</label>
-                                        <input type="text" class="form-control" id="login-log" placeholder="Login" required="required">
+                                        <input type="text" class="form-control" id="login" name="login" placeholder="Login" required="required">
                                     </div>
                                 </div>
                                 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="password-log" class="required">Hasło</label>
-                                        <input type="password" class="form-control" id="password-log" placeholder="Password" required="required">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required">
                                     </div>
                                 </div>
-
+                                Nie masz konta? <a href="{{ url('/register')}}"> Zarejestruj się </a>
                                 <div class="text-right">
                                     <input type="submit" class="btn btn-primary" value="Zaloguj">
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    
                 </div>
 
                 <div class="d-flex">
