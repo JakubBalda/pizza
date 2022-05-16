@@ -53,6 +53,7 @@
                 <div class="d-flex h-full w-full justify-content-center">
 
                         <div class="card bg-white h-550 mt-120 shadow">
+                            
                             <form action="loginSession" method="get">
                                 <h2 class="content-title">Logowanie</h2>
                                 

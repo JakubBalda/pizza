@@ -18,39 +18,40 @@
     </head>
     <body class="bg-light">
             <div class="page-wrapper with-navbar">
-                <nav class="navbar ">
-                    <a href="#main" class="navbar-brand">
-                        <img src="img/pizza-navbar.png"/>
-                        Grande Pizza 
-                    </a>
-                    
-                    <span class="navbar-text text-monospace text-dark "> Piekary Śląskie</span>
-
-                    <ul class="navbar-nav d-none d-md-flex font-weight-semi-bold">
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="{{ url('/menu') }}" class="nav-link">Menu</a>
-                        </li>
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="#dostawa" class="nav-link">Dostawa</a>
-                        </li>
+                <nav class="navbar justify-content-between">
+                    <div class="d-flex">
+                        <a href="#main" class="navbar-brand">
+                            <img src="img/pizza-navbar.png"/>
+                            Grande Pizza 
+                        </a>
                         
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="#kontakt" class="nav-link">Kontakt</a>
-                        </li>
+                        <span class="navbar-text text-monospace text-dark "> Piekary Śląskie</span>
+
+                        <ul class="navbar-nav d-none d-md-flex font-weight-semi-bold">
+                            <li class="new-item active mt-auto mb-auto">
+                                <a href="{{ url('/menu') }}" class="nav-link">Menu</a>
+                            </li>
+                            <li class="new-item active mt-auto mb-auto">
+                                <a href="#dostawa" class="nav-link">Dostawa</a>
+                            </li>
+                            
+                            <li class="new-item active mt-auto mb-auto">
+                                <a href="#kontakt" class="nav-link">Kontakt</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="d-flex">
+                        @isset($role)<button onclick="location='user'" class="btn btn-primary mr-15">{{$role}}</button>@endif
                         
-                    </ul>
-
-                    @isset($role)<button onclick="location='user'" class="btn btn-primary">{{$role}}</button>@endif
-                    
-                    @if(PHP_SESSION_NONE)<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
-                        <i class="icon-login"> Zaloguj się</i>
-                    </button>@else<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
-                        <i class="icon-login"> Zaloguj się</i>
-                    </button>@endif
-
+                        @if(isset($role))<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
+                            <i class="icon-login"> Wyologuj się</i>
+                        </button>@else<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
+                            <i class="icon-login"> Zaloguj się</i>
+                        </button>@endif
+                    </div>
                 </nav>
-
-                
             </div>
 
             <div class="content-wrapper">

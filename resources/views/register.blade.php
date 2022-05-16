@@ -49,68 +49,70 @@
             </div>
 
             <div class="content-wrapper">
-                
-                <div class="d-flex h-full justify-content-center">                    
-                        <div class="card bg-white w-600 h-550 mt-120 shadow">
-                            <form action="" method="">
+            @if($errors->any())<div class="card mt-50"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
+                <div class="d-flex h-full justify-content-center">   
+                    
+                        <div class="card bg-white w-600 h-550 mt-50 shadow">
+
+                            <form action="registerUser" method="get">
                                 <h2 class="content-title">Rejestracja</h2>
 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="name" class="required">Imię</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Imię" required="required">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Imię" required="required">
                                     </div>
                                     <div class="col-sm">
                                         <label for="surname" class="required">Nazwisko</label>
-                                        <input type="text" class="form-control" id="surname" placeholder="Nazwisko" required="required">
+                                        <input type="text" class="form-control" id="surname" name="surname" placeholder="Nazwisko" required="required">
                                     </div>
                                 </div>
                                 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="streat" class="required">Ulica</label>
-                                        <input type="text" class="form-control" id="streat" placeholder="Ulica" required="required">
+                                        <input type="text" class="form-control" id="streat" name="street" placeholder="Ulica" required="required">
                                     </div>
                                     <div class="col-sm">
                                         <label for="hosue" class="required">Nr domu</label>
-                                        <input type="text" class="form-control" id="house" placeholder="Nr domu" required="required">
+                                        <input type="text" class="form-control" id="house" name="house" placeholder="Nr domu" required="required">
                                     </div>
                                     <div class="col-sm">
                                         <label for="flat">Nr mieszkania</label>
-                                        <input type="text" class="form-control" id="flat" placeholder="Nr mieszkania">
+                                        <input type="text" class="form-control" id="flat" name="flat" placeholder="Nr mieszkania">
                                     </div>
                                 </div>
 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="town" class="required">Miasto</label>
-                                        <input type="text" class="form-control" id="town" placeholder="Miasto" required="required">
+                                        <input type="text" class="form-control" id="town" name="town" placeholder="Miasto" required="required">
                                     </div>
                                     <div class="col-sm">
                                         <label for="postal" class="required">Kod pocztowy</label>
-                                        <input type="text" class="form-control" id="postal" placeholder="Kod pocztowy" required="required">
+                                        <input type="text" class="form-control" id="postal" name="postal" placeholder="Kod pocztowy" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="login-reg" class="required">Login</label>
-                                        <input type="text" class="form-control" id="login-reg" placeholder="Login" required="required">
+                                        <input type="text" class="form-control" id="login-reg" name="login" placeholder="Login" required="required">
                                     </div>
                                     <div class="col-sm">
                                         <label for="password-reg" class="required">Hasło</label>
-                                        <input type="password" class="form-control" id="password-reg" placeholder="Password" required="required">
+                                        <input type="password" class="form-control" id="password-reg" name="password" placeholder="Password" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="phone" class="required">Nr telefonu</label>
-                                        <input type="text" class="form-control" id="phone" placeholder="Nr telefonu" required="required">
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Nr telefonu" value="+48" required="required">
                                     </div>
                                     <div class="col-sm">
                                         <label for="e-mail" class="required">E-mail</label>
-                                        <input type="text" class="form-control" id="e-mail" placeholder="E-mail" required="required">
+                                        <input type="text" class="form-control" id="e-mail" name="mail" placeholder="E-mail" required="required">
                                     </div>
                                 </div>
 
@@ -120,7 +122,7 @@
                             </form>
                         </div>
                 </div>
-
+                
                 <div class="d-flex">
                     <footer class="pl-20 bg-dark-light w-full text-white font-weight-semi-bold">
                         <span>&copy: Wszelkie prawa zastrzeżone</span>
