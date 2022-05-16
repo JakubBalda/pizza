@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 
-class Login extends Controller
+class login extends Controller
 {
     public $login;
     public $role;
@@ -27,7 +27,7 @@ class Login extends Controller
             if(session_status() == PHP_SESSION_NONE)
                 session_start();
 
-            $_SESSION['sessionrole'] = $this->role;
+            $_SESSION['sessionrole'] = $this->Rola;
             $_SESSION['login'] = $this->login;
             $_SESSION['id'] = $this->ID;
 
@@ -39,7 +39,7 @@ class Login extends Controller
 
     public function logout(){
         if(session_status() == PHP_SESSION_NONE)
-            session_start();
+                session_start();
 
         session_destroy();
 
