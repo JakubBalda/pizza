@@ -53,7 +53,7 @@
                 <div class="d-flex h-full w-full justify-content-center">
 
                         <div class="card bg-white h-550 mt-120 shadow">
-                            
+
                             <form action="loginSession" method="get">
                                 <h2 class="content-title">Logowanie</h2>
                                 
@@ -74,6 +74,8 @@
                                 <div class="text-right">
                                     <input type="submit" class="btn btn-primary" value="Zaloguj">
                                 </div>
+                                
+                                @if($errors->any())<div class="mt-10"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
                             </form>
                         </div>
                     

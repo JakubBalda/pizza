@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Request;
 
 class Login extends Controller
 {
@@ -11,8 +11,23 @@ class Login extends Controller
     public $role;
     public $ID;
 
-    public function login(){
+    public function loginValidate(Request $val){
+        $val->validate(
+            [
+                'login'=>'required|exists:klienci',
+                'password'=>'required'
+            ],
+            [
+                'required'=>'Pole :attribute jest wymagane!',
+                'exists'=>'Podany login nie istnieje'
+            ]
+        );  
+    }
 
+    public function login(Request $val){
+
+        $this->loginValidate($val);
+        
         $userLogin = $_GET['login'];
         $userPassword = $_GET['password'];
 
@@ -24,6 +39,8 @@ class Login extends Controller
         $dbPass = $user->Haslo;
 
         if($this->login == $userLogin && $dbPass == $userPassword){
+
+
             if(session_status() == PHP_SESSION_NONE)
                 session_start();
 
