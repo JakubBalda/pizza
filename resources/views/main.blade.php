@@ -43,10 +43,10 @@
                     </div>
 
                     <div class="d-flex">
-                        @isset($role)<button onclick="location='user'" class="btn btn-primary mr-15">{{$role}}</button>@endif
+                        @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15">{{$role}}</button>@endif
                         
                         @if(isset($role))<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
-                            <i class="icon-login"> Wyologuj się</i>
+                            <i class="icon-login"> Wyloguj się</i>
                         </button>@else<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
                             <i class="icon-login"> Zaloguj się</i>
                         </button>@endif

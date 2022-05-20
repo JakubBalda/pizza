@@ -11,7 +11,7 @@ use App\Http\Controllers\Register;
     if(isset($_SESSION['login']) && isset($_SESSION['sessionrole'])){
         $this->role = $_SESSION['sessionrole'];
         $this->login = $_SESSION['login'];
-        $this->id = $_SESSION['id'];
+        $this->ID = $_SESSION['id'];
     }else{
         $this->role = null;
     }
@@ -46,3 +46,5 @@ Route::get('/login', function(){
 Route::get('/register', function(){
     return view('register');
 });
+
+Route::get('/userPanel', [Database::class, 'getUserData'] );

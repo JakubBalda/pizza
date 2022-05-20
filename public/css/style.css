@@ -16,6 +16,10 @@
 .mt-120{
     margin-top: 12em;
 }
+
+.mt-100{
+    margin-top: 10em;
+}
 .font-size-36{
     font-size: 36px;
 }
@@ -24,4 +28,10 @@
 }
 .bg-light-green{
     background-color: rgb(216, 240, 216);
+}
+.w-750{
+    width: 75em;
+}
+.w-625{
+    width: 625px;
 }

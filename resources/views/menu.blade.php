@@ -45,7 +45,7 @@
                     <div class="d-flex">
                         @if($role == "Admin")<button class="btn btn-primary ml-auto mr-15">Edytuj</button>@endif
 
-                        @isset($role)<button onclick="location='user'" class="btn btn-primary ml-auto mr-15">{{$role}}</button>@endif
+                        @isset($role)<button onclick="location='userPanel'" class="btn btn-primary ml-auto mr-15">{{$role}}</button>@endif
                     
                         @if(!isset($role))<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
                             <i class="icon-login"> Zaloguj się</i>

@@ -48,7 +48,7 @@ class Login extends Controller
             $_SESSION['login'] = $this->login;
             $_SESSION['id'] = $this->ID;
 
-            return view('main', ['role'=>$this->role]);
+            return view('main', ['role'=>$this->role, 'ID'=>$this->ID]);
         }else{
             return view('login');
         }
