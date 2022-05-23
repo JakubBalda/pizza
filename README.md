@@ -28,6 +28,13 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - Dodana walidacja logowania
 - Pizze wyświetlane z bazy danych
 
+## Postęp prac 24.05.2022
+
+- Dodano panel użytkownika
+- Dodano możliwość zmiany danych osobowych
+- Dodano możliwość zmiany hasła użytkownika
+- Dodano możliwość rejestracji użytkowników przed administrację
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
