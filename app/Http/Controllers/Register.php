@@ -55,7 +55,7 @@ class Register extends Controller{
         $this->getSessionParams();
         $this->validateUser($val); 
 
-        if(isset($_GET['role'])){
+        if(!isset($_GET['role'])){
             DB::table('klienci')->insert([
                 'Imie' => $_GET['name'],
                 'nazwisko' => $_GET['surname'],
@@ -70,6 +70,11 @@ class Register extends Controller{
                 'haslo' => $_GET['password'],
                 'rola'=>'Klient'
             ]);
+
+            echo '<script type="text/javascript">
+                    alert("Zarejestrowano poprawnie! Zaloguj się!");
+                </script>';
+
             return view('main');
         }else{
             DB::table('klienci')->insert([
@@ -86,7 +91,12 @@ class Register extends Controller{
                 'haslo' => $_GET['password'],
                 'rola'=>$_GET['role']
             ]);
-            return view('userPanel', ['role'=>$this->role]);
+
+            echo '<script type="text/javascript">
+                    alert("Dodano nowego użytkownika");
+                </script>';
+
+            return view('main', ['role'=>$this->role]);
         }
         
     }

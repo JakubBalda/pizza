@@ -60,7 +60,7 @@
             @if($errors->any())<div class="card mt-50"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
                 <div class="d-flex h-full justify-content-center">   
                     
-                        <div class="card bg-white w-600 h-700 mt-50 shadow">
+                        <div class="card bg-white w-600 h-600 mt-50 shadow">
 
                             <form action="registerUser" method="get">
                                 <h2 class="content-title">Rejestracja</h2>
@@ -126,11 +126,10 @@
                                     
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
-                                        <label for="role" class="required">Rola</label>
-                                        <select name="role" id="role">
-                                            <option value="Admin">Admin</option>
-                                            <option value="Klient">Klient</option>
-                                        </select>
+                                        <label for="role">Admin</label>
+                                        <input type="radio" name="role" value="Admin">
+                                        <label for="role">Klient</label>
+                                        <input type="radio" name="role" value="Klient">
                                     </div>
                                 </div>
 
