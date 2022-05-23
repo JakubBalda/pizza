@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Database;
 use App\Http\Controllers\Register;
+use App\Http\Controllers\User;
 
     if(session_status() == PHP_SESSION_NONE)
         session_start();
@@ -47,4 +48,12 @@ Route::get('/register', function(){
     return view('register');
 });
 
+Route::get('/registerUserByAdmin', function(){
+    return view('registerAdmin', ['role'=>$this->role]);
+});
+
 Route::get('/userPanel', [Database::class, 'getUserData'] );
+
+Route::get('/editUserData', [User::class, 'editUserData'] );
+
+Route::get('/editUserPassword', [User::class, 'editUserPassword'] );

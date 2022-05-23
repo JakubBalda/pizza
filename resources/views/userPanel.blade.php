@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="d-flex">
-                        @if($role == "Admin")<button class="btn btn-primary ml-auto mr-15">Dodaj admina</button>@endif
+                        @if($role == "Admin")<button onclick="location='registerUserByAdmin'" class="btn btn-primary ml-auto mr-15">Dodaj użytkownika</button>@endif
 
                         @if($role == "Admin")<button class="btn btn-primary ml-auto mr-15">Edytuj użytkownika</button>@endif
 
@@ -60,6 +60,8 @@
 
             <div class="content-wrapper">
                 
+            @if($errors->any())<div class="card mt-50"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
+
                 <div class="d-flex h-full justify-content-around">
                     @foreach($user as $userData)
                     <div class="card mt-100 w-500 h-550 shadow text-center">
@@ -133,12 +135,12 @@
 
                         <form action="editUserPassword" method="get">
                             <div class="form-row row-eq-spacing-sm">
-                                <label for="login-reg" >Nowe hasło</label>
-                                <input type="text" class="form-control" id="login-reg" name="login" placeholder="Nowe hasło" required="required">
+                                <label for="new-password" >Nowe hasło</label>
+                                <input type="password" class="form-control" id="new-password" name="new-password" placeholder="Nowe hasło"  required="required">
                             </div>
                             <div class="form-row row-eq-spacing-sm">
-                                <label for="login-reg" >Powtórz nowe hasło</label>
-                                <input type="text" class="form-control" id="login-reg" name="login" placeholder="Powtórz nowe hasło" required="required">
+                                <label for="new-password-2" >Powtórz nowe hasło</label>
+                                <input type="password" class="form-control" id="new-password-2" name="new-password-2" placeholder="Powtórz nowe hasło" required="required">
                             </div>
 
                             <input type="submit" class="btn btn-primary" value="Zmień">

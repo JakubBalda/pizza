@@ -31,8 +31,11 @@ class Database extends Controller{
         $this->getSessionParams();
 
         $user = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->get();
+        
 
         return view('/userPanel', ['role'=>$this->role, 'user'=>$user]);
     }
+
+    
 }
 ?>

@@ -17,32 +17,40 @@
     </head>
     <body class="bg-light">
             <div class="page-wrapper with-navbar">
-                <nav class="navbar ">
-                    <a href="{{ url('/') }}" class="navbar-brand">
-                        <img src="img/pizza-navbar.png"/>
-                        Grande Pizza 
-                    </a>
+                <nav class="navbar justify-content-between">
                     
-                    <span class="navbar-text text-monospace text-dark "> Piekary Śląskie</span>
+                        <div class="d-flex">
+                            <a href="{{ url('/') }}" class="navbar-brand">
+                                <img src="img/pizza-navbar.png"/>
+                                Grande Pizza 
+                            </a>
+                            
+                            <span class="navbar-text text-monospace text-dark "> Piekary Śląskie</span>
 
-                    <ul class="navbar-nav d-none d-md-flex font-weight-semi-bold">
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="{{ url('/menu') }}" class="nav-link">Menu</a>
-                        </li>
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="{{ url('/') }}#dostawa" class="nav-link">Dostawa</a>
-                        </li>
-                        
-                        <li class="new-item active mt-auto mb-auto">
-                            <a href="{{ url('/') }}#kontakt" class="nav-link">Kontakt</a>
-                        </li>
-                        
-                    </ul>
+                            <ul class="navbar-nav d-none d-md-flex font-weight-semi-bold">
+                                <li class="new-item active mt-auto mb-auto">
+                                    <a href="{{ url('/menu') }}" class="nav-link">Menu</a>
+                                </li>
+                                <li class="new-item active mt-auto mb-auto">
+                                    <a href="{{ url('/') }}#dostawa" class="nav-link">Dostawa</a>
+                                </li>
+                                
+                                <li class="new-item active mt-auto mb-auto">
+                                    <a href="{{ url('/') }}#kontakt" class="nav-link">Kontakt</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="d-flex">
+                            @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15">{{$role}}</button>@endif
+                                
+                            @if(isset($role))<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
+                                <i class="icon-login"> Wyloguj się</i>
+                            </button>@else<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
+                                <i class="icon-login"> Zaloguj się</i>
+                            </button>@endif
+                        </div>
                     
-                    <button onclick="location='login'" class="btn btn-primary text-white ml-auto  mr-15">
-                        <i class="icon-login"> Zaloguj się</i>
-                    </button>
-
                 </nav>
 
                 
@@ -52,7 +60,7 @@
             @if($errors->any())<div class="card mt-50"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
                 <div class="d-flex h-full justify-content-center">   
                     
-                        <div class="card bg-white w-600 h-550 mt-50 shadow">
+                        <div class="card bg-white w-600 h-700 mt-50 shadow">
 
                             <form action="registerUser" method="get">
                                 <h2 class="content-title">Rejestracja</h2>
@@ -115,7 +123,16 @@
                                         <input type="text" class="form-control" id="e-mail" name="mail" placeholder="E-mail" required="required">
                                     </div>
                                 </div>
-
+                                    
+                                <div class="form-row row-eq-spacing-sm">
+                                    <div class="col-sm">
+                                        <label for="role" class="required">Rola</label>
+                                        <select name="role" id="role">
+                                            <option value="Admin">Admin</option>
+                                            <option value="Klient">Klient</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="text-right">
                                     <input type="submit" class="btn btn-primary" value="Zarejestruj">
