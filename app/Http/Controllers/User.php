@@ -120,11 +120,12 @@ class User extends Controller
     public function deleteAccount(){
         $this->getSessionParams();
 
-        //DB::table('klienci')->where('ID_klienta','=', $this->ID)->delete();
 
-        //return redirect()->route('logout');
-        
-        // TO:DO - dokończyć usuwanie użytkownika, zastanowić się nad implementacją
+        DB::table('klienci')->where('ID_klienta','=', $this->ID)->delete();
+
+
+        return redirect()->route('logout');
+
 
     }
 

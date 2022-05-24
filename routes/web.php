@@ -38,7 +38,7 @@ Route::get('/menu', [Database::class, 'showPizza'] );
 
 Route::get('/loginSession', [Login::class, 'login']);
 
-Route::get('/logout', [Login::class, 'logout']);
+Route::get('/logout', [Login::class, 'logout'])->name('logout');
 
 Route::get('/login', function(){
     return view('login');
