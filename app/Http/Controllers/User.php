@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Database;
+use Illuminate\Routing\Redirector;
 
 class User extends Controller
 {
@@ -84,6 +84,10 @@ class User extends Controller
 
         $user = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->get();
 
+        echo '<script type="text/javascript">
+                    alert("Zmiany zostały zapisane!");
+                </script>';
+
         return view('userPanel', ['role'=>$this->role, 'user'=>$user]);
 
     }
@@ -98,6 +102,11 @@ class User extends Controller
         if($_GET['new-password'] != $userPassword){
 
             DB::table('klienci')->where('ID_klienta', $this->ID)->update(['Haslo'=>$_GET['new-password']]);
+
+            echo '<script type="text/javascript">
+                    alert("Hasło zmienione poprawnie");
+                </script>';
+
             return view('userPanel', ['role'=>$this->role, 'user'=>$user]);
 
         }else{
@@ -106,10 +115,20 @@ class User extends Controller
                 </script>';
             return view('userPanel', ['role'=>$this->role, 'user'=>$user]);
         }
+    }
 
+    public function deleteAccount(){
+        $this->getSessionParams();
+
+        //DB::table('klienci')->where('ID_klienta','=', $this->ID)->delete();
+
+        //return redirect()->route('logout');
+        
+        // TO:DO - dokończyć usuwanie użytkownika, zastanowić się nad implementacją
 
     }
-}
 
+    
+}
 
 ?>

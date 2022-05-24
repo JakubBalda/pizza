@@ -15,6 +15,16 @@
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="stylesheet" href="css/css/fontello.css" type="text/css">
 
+
+        <script type="text/javascript">
+
+            function deleteConfirm(){
+                
+                if(confirm("Czy na pewno chcesz usunąć konto?")){
+                    location="deleteAccount";
+                }
+            }
+        </script>
     </head>
     <body class="bg-light">
             <div class="page-wrapper with-navbar">
@@ -48,6 +58,8 @@
                         @if($role == "Admin")<button class="btn btn-primary ml-auto mr-15">Edytuj użytkownika</button>@endif
 
                         @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15">{{$role}}</button>@endif
+
+                        @isset($role)<button onclick="deleteConfirm()" class="btn btn-primary mr-15">Usuń konto</button>@endif
                         
                         @if(isset($role))<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
                             <i class="icon-login"> Wyloguj się</i>

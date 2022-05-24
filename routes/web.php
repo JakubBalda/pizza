@@ -57,3 +57,6 @@ Route::get('/userPanel', [Database::class, 'getUserData'] );
 Route::get('/editUserData', [User::class, 'editUserData'] );
 
 Route::get('/editUserPassword', [User::class, 'editUserPassword'] );
+
+Route::get('/deleteAccount', [User::class, 'deleteAccount'] );
+
