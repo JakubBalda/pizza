@@ -34,6 +34,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - Dodano możliwość zmiany danych osobowych
 - Dodano możliwość zmiany hasła użytkownika
 - Dodano możliwość rejestracji użytkowników przed administrację
+- Usuwanie konta przez użytkownika
 
 ## License
 

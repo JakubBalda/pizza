@@ -126,7 +126,6 @@ class User extends Controller
 
         return redirect()->route('logout');
 
-
     }
 
     
