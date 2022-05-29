@@ -3,9 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 
 class Database extends Controller{
+
+    public function validateNewPizza(Request $val){
+        $val->validate(
+            [
+                'pizzaName'=>'required|regex:"#^\p{L}+$#u"|min:5|max:20',
+                'ingrids'=>'required|regex:"#^\p{L}+$#u"|min:5|max:200',
+                'price'=>'required|regex:"/^[0-9]{1,2}(\.|,)[0-9]{2}$/"'
+            ],
+            [
+                'required'=>'Pole :attribute jest wymagane',
+                'price.regex'=>'Zły format ceny',
+                'pizzaName.regex'=>'Nazwa pizzy może składać się tylko z liter',
+                'ingrids.regex'=>'Składniki mogą składać się tylko z liter'
+            ]
+        );
+    }
 
     public function showPizza(){
         $this->getSessionParams();
@@ -66,17 +83,18 @@ class Database extends Controller{
         $this->getSessionParams();
         $this->pizzaNames();
 
-        # TO:DO - dokończy edycje pizzy, zrobić dodawanie (funkcja addNewPizza()) oraz usuwanie(funkcja deletePizza()) 
+        # TO:DO - dokończy edycje pizzy, zrobić dodawanie (funkcja addNewPizza()) oraz 
     }
     
-    public function addNewPizza(){
-
+    public function addNewPizza(Request $val){
+        $this->getSessionParams();
     }
     public function deletePizza(){
         $this->getSessionParams();
 
-        if(isset($_GET['pizzaName'])){
-           // DB::table('pizza')->where('Nazwa_pizzy','=', $_GET['pizzaName'])->delete();
+        if(isset($_GET['pizzaName']) && isset($_GET['confirm'])){
+            
+            DB::table('pizza')->where('Nazwa_pizzy','=', $_GET['pizzaName'])->delete();
         }
 
         $this->pizzaNames();

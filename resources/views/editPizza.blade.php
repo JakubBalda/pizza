@@ -88,14 +88,16 @@
                                 <input type="submit" class="btn btn-primary" value="Wybierz">
                             </form>
 
-                            <form onsubmit="return deleteConfrim();" method="get">
+                            <form action="deletePizza" method="get">
                                 <select name="pizzaName">
                                     <option value="" disabled selected>Wybierz</option>
                                     @foreach($pizzaName as $name)
                                     <option value="{{$name->Nazwa_pizzy}}">{{$name->Nazwa_pizzy}}</option>
                                     @endforeach
                                 </select>
-
+                                
+                                <label for="comfirm">Potiwerdź usunięcie</label>
+                                <input type="checkbox" name="confirm" id="confirm">
                                 <input type="submit" class="btn btn-primary" value="Usuń">
                             </form>
                         </div>

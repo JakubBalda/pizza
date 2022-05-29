@@ -66,3 +66,5 @@ Route::get('/getSelectedPizza', [Database::class, 'getSelectedPizza'] );
 
 Route::get('/editPizzaData', [Database::class, 'editPizzaData'] );
 
+Route::get('/deletePizza', [Database::class, 'deletePizza'] );
+
