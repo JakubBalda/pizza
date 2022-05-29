@@ -64,10 +64,14 @@ class User extends Controller
         );
     }
 
+    public function getUser(){
+        $this->user = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->get();
+    }
 
     public function editUserData(Request $val){
         $this->validateUpdates($val); 
         $this->getSessionParams();
+        $this->getUser();
         
         DB::table('klienci')->where('ID_klienta', $this->ID)->update([
             'Imie'=> $_GET['name'],
@@ -82,21 +86,19 @@ class User extends Controller
             'Mail' => $_GET['mail'],
         ]);
 
-        $user = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->get();
-
         echo '<script type="text/javascript">
                     alert("Zmiany zostały zapisane!");
                 </script>';
 
-        return view('userPanel', ['role'=>$this->role, 'user'=>$user]);
+        return view('userPanel', ['role'=>$this->role, 'user'=>$this->user]);
 
     }
 
     public function editUserPassword(Request $val){
         $this->getSessionParams();
-        $this->validateNewPassword($val); 
+        $this->validateNewPassword($val);
+        $this->getUser(); 
 
-        $user = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->get();
         $userPassword = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->value('Haslo');
 
         if($_GET['new-password'] != $userPassword){
@@ -107,22 +109,20 @@ class User extends Controller
                     alert("Hasło zmienione poprawnie");
                 </script>';
 
-            return view('userPanel', ['role'=>$this->role, 'user'=>$user]);
+            return view('userPanel', ['role'=>$this->role, 'user'=>$this->user]);
 
         }else{
             echo '<script type="text/javascript">
                     alert("Nowe hasło nie może być starym hasłem");
                 </script>';
-            return view('userPanel', ['role'=>$this->role, 'user'=>$user]);
+            return view('userPanel', ['role'=>$this->role, 'user'=>$this->user]);
         }
     }
 
     public function deleteAccount(){
         $this->getSessionParams();
 
-
         DB::table('klienci')->where('ID_klienta','=', $this->ID)->delete();
-
 
         return redirect()->route('logout');
 

@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <label for="flat">Nr mieszkania</label>
-                                        <input type="text" class="form-control" id="flat" name="flat" placeholder="Nr mieszkania">
+                                        <input type="text" class="form-control" id="flat" name="flat" placeholder="Nr mieszkania" maxlength="3">
                                     </div>
                                 </div>
 
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <label for="postal" class="required">Kod pocztowy</label>
-                                        <input type="text" class="form-control" id="postal" name="postal" placeholder="Kod pocztowy" required="required">
+                                        <input type="text" class="form-control" id="postal" name="postal" placeholder="Kod pocztowy" required="required" maxlength="6">
                                     </div>
                                 </div>
 
@@ -116,7 +116,7 @@
                                 <div class="form-row row-eq-spacing-sm">
                                     <div class="col-sm">
                                         <label for="phone" class="required">Nr telefonu</label>
-                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Nr telefonu" value="+48" required="required">
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Nr telefonu" value="+48" required="required" maxlength="12">
                                     </div>
                                     <div class="col-sm">
                                         <label for="e-mail" class="required">E-mail</label>

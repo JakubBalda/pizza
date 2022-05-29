@@ -60,3 +60,9 @@ Route::get('/editUserPassword', [User::class, 'editUserPassword'] );
 
 Route::get('/deleteAccount', [User::class, 'deleteAccount'] );
 
+Route::get('/editPizza', [Database::class, 'getPizzaNames'] );
+
+Route::get('/getSelectedPizza', [Database::class, 'getSelectedPizza'] );
+
+Route::get('/editPizzaData', [Database::class, 'editPizzaData'] );
+

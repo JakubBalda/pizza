@@ -36,6 +36,51 @@ class Database extends Controller{
         return view('/userPanel', ['role'=>$this->role, 'user'=>$user]);
     }
 
+    public function pizzaNames(){
+        $this->pizzaNames =  DB::table('pizza')->select('Nazwa_pizzy')->get();
+    }
+
+    public function getPizzaNames(){
+        $this->getSessionParams();
+        $this->pizzaNames();
+
+        return view('/editPizza', ['role'=>$this->role, 'pizzaName'=> $this->pizzaNames]);
     
+    }
+
+    public function getSelectedPizza(){
+        $this->getSessionParams();
+        $this->pizzaNames();
+
+        if(isset($_GET['pizzaName'])){
+
+            $pizza = DB::table('pizza')->where('Nazwa_pizzy', '=', $_GET['pizzaName'])->get();
+
+        return view('/editPizza', ['role'=>$this->role, 'pizzaName'=> $this->pizzaNames, 'pizzaData'=>$pizza]);
+        }else{
+            return view('/editPizza', ['role'=>$this->role, 'pizzaName'=> $this->pizzaNames]);
+        }
+    }
+
+    public function editPizzaData(){
+        $this->getSessionParams();
+        $this->pizzaNames();
+
+        # TO:DO - dokończy edycje pizzy, zrobić dodawanie (funkcja addNewPizza()) oraz usuwanie(funkcja deletePizza()) 
+    }
+    
+    public function addNewPizza(){
+
+    }
+    public function deletePizza(){
+        $this->getSessionParams();
+
+        if(isset($_GET['pizzaName'])){
+           // DB::table('pizza')->where('Nazwa_pizzy','=', $_GET['pizzaName'])->delete();
+        }
+
+        $this->pizzaNames();
+        return view('/editPizza', ['role'=>$this->role, 'pizzaName'=> $this->pizzaNames]);
+    }
 }
 ?>

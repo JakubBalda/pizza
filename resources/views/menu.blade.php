@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="d-flex">
-                        @if($role == "Admin")<button class="btn btn-primary ml-auto mr-15">Edytuj</button>@endif
+                        @if($role == "Admin")<button onclick="location='editPizza'" class="btn btn-primary ml-auto mr-15">Edytuj</button>@endif
 
                         @isset($role)<button onclick="location='userPanel'" class="btn btn-primary ml-auto mr-15">{{$role}}</button>@endif
                     
