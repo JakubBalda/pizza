@@ -61,12 +61,12 @@
 
             <div class="content-wrapper">
                 
-                <div class="mt-50 d-flex flex-column h-full">
+                <div class="mt-50 d-flex flex-column">
                     <div class="content">
                         <h1 class="content-title ml-5 font-size-36">Menu</h1>
                     </div>
                     @foreach($pizza as $pizzaData)
-                    <div class="card mt-10 shadow">
+                    <div class="card d-flex mt-10 shadow">
                     <div class="container-fluid text-uppercase">
                             <div class="row align-self-center">
                                 <div class="col-2 align-self-center">

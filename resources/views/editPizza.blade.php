@@ -107,7 +107,12 @@
                                 <div class="card w-400 shadow text-center">
                                 <h2 class="content-title">Pizza</h2>
                                     @foreach($pizzaData as $pizza)
-                                    <form action="" method="get">
+                                    <form action="editPizzaData" method="get">
+                                        <div class="form-row row-eq-spacing-sm">
+                                            <div class="col-sm">
+                                                <input type="hidden" id="pizza-id" name="pizzaID" value="{{$pizza->ID}}" >
+                                            </div>
+                                        </div>
                                         <div class="form-row row-eq-spacing-sm">
                                             <div class="col-sm">
                                                 <label for="pizzaName">Nazwa pizzy</label>
@@ -131,13 +136,15 @@
                                         <input type="submit" class="btn btn-primary " value="Zapisz">
                                     </form>
                                     @endforeach
+
+                                    @if($errors->any())<div class="mt-10"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
                                 </div>
                             @endif
 
                             <div class="card w-400 shadow text-center">
                                 <h2 class="content-title">Dodaj pizze</h2>
 
-                                <form action="" method="get">
+                                <form action="addPizza" method="get">
                                         <div class="form-row row-eq-spacing-sm">
                                             <div class="col-sm">
                                                 <label for="addPizzaName" class="required">Nazwa pizzy</label>
@@ -160,6 +167,8 @@
                                         </div>
                                         <input type="submit" class="btn btn-primary " value="Dodaj">
                                     </form>
+
+                                    @if($errors->any())<div class="mt-10"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
                             </div>
                         </div>
                     </div>

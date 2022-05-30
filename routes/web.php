@@ -34,7 +34,7 @@ Route::get('/', function () {
 
 Route::get('/registerUser', [Register::class, 'registerUser'] );
 
-Route::get('/menu', [Database::class, 'showPizza'] );
+Route::get('/menu', [Database::class, 'showPizza'] )->name('menu');
 
 Route::get('/loginSession', [Login::class, 'login']);
 
@@ -60,11 +60,13 @@ Route::get('/editUserPassword', [User::class, 'editUserPassword'] );
 
 Route::get('/deleteAccount', [User::class, 'deleteAccount'] );
 
-Route::get('/editPizza', [Database::class, 'getPizzaNames'] );
+Route::get('/editPizza', [Database::class, 'getPizzaNames'] )->name('editPizza');
 
 Route::get('/getSelectedPizza', [Database::class, 'getSelectedPizza'] );
 
 Route::get('/editPizzaData', [Database::class, 'editPizzaData'] );
 
 Route::get('/deletePizza', [Database::class, 'deletePizza'] );
+
+Route::get('/addPizza', [Database::class, 'addNewPizza'] );
 
