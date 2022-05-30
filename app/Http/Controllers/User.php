@@ -36,6 +36,7 @@ class User extends Controller
     }
 
     public function validateUpdates(Request $val){
+        $this->getSessionParams();
         $val->validate(
             [
                 'name'=>'required|regex:"[A-Z]{1}[a-z]"|min:3|max:25',
@@ -44,9 +45,9 @@ class User extends Controller
                 'house'=>'required|regex:"[0-9]"|min:1|max:3',
                 'town'=>'required|regex:"[A-Z]{1}[a-z]"|min:3|max:40',
                 'postal'=>'required|regex:"[0-9]{2}\-[0-9]{3}"',
-                'phone'=>'required|regex:"^[0-9\-\+]{12,12}$"',
-                'mail'=>'required|regex:"^[a-z0-9]+\@[a-z]+\.[a-z]+"|min:7|max:40',
-                'login'=>'required|regex:".\S"|min:3|max:30|',
+                'phone'=>'required|regex:"^[0-9\-\+]{12,12}$"|unique:klienci,Nr_telefonu, '.$this->ID . ',ID_klienta',
+                'mail'=>'required|regex:"^[a-z0-9]+\@[a-z]+\.[a-z]+"|min:7|max:40|unique:klienci,Mail, '.$this->ID . ',ID_klienta',
+                'login'=>'required|regex:".\S"|min:3|max:30|unique:klienci,Login, '.$this->ID . ',ID_klienta',
             ],
             [
                 'name.regex'=>'Imię musi zaczynać się od dużej litery',

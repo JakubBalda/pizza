@@ -55,8 +55,6 @@
                     <div class="d-flex">
                         @if($role == "Admin")<button onclick="location='registerUserByAdmin'" class="btn btn-primary ml-auto mr-15">Dodaj użytkownika</button>@endif
 
-                        @if($role == "Admin")<button class="btn btn-primary ml-auto mr-15">Edytuj użytkownika</button>@endif
-
                         @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15">{{$role}}</button>@endif
 
                         @if($role != "Admin") <button onclick="deleteConfirm()" class="btn btn-primary mr-15">Usuń konto</button>@endif
