@@ -36,6 +36,13 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - Dodano możliwość rejestracji użytkowników przed administrację
 - Usuwanie konta przez użytkownika
 
+## Postęp prac 31.05.2022
+- Dodano możliwość edytowania menu
+- Dodano możliwość edycji pizzy
+- Dodano możliwość usuwania pizzy
+- Dodano możliwość dodawania pizzy
+- Poprawiono walidację edycji danych użytkownika
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
