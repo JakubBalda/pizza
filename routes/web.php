@@ -70,3 +70,4 @@ Route::get('/deletePizza', [Database::class, 'deletePizza'] );
 
 Route::get('/addPizza', [Database::class, 'addNewPizza'] );
 
+    

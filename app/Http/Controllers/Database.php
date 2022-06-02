@@ -26,7 +26,7 @@ class Database extends Controller{
 
     public function showPizza(){
         $this->getSessionParams();
-        $pizza = DB::table('pizza')->get();
+        $pizza = DB::table('pizza')->paginate(1);
 
         return view('/menu', compact('pizza'), ['role'=>$this->role]);
     }

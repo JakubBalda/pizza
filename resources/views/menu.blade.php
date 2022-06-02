@@ -109,7 +109,9 @@
                         </div>
                     </div>
                     @endforeach
-                    
+                    <span>
+                        {{$pizza->links("pagination::bootstrap-4")}}
+                    </span>
                 </div>
 
                 <div id="kontakt" class="d-flex w-full h-150 bg-dark-light text-light">
