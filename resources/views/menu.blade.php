@@ -45,6 +45,8 @@
                     <div class="d-flex">
                         @if($role == "Admin")<button onclick="location='editPizza'" class="btn btn-primary ml-auto mr-15">Edytuj</button>@endif
 
+                        @isset($role)<button onclick="location='myCart'" class="btn btn-primary ml-auto mr-15"><i class="icon-basket"></i></button>@endif
+
                         @isset($role)<button onclick="location='userPanel'" class="btn btn-primary ml-auto mr-15">{{$role}}</button>@endif
                     
                         @if(!isset($role))<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
@@ -67,7 +69,7 @@
                     </div>
                     @foreach($pizza as $pizzaData)
                     <div class="card d-flex mt-10 shadow">
-                    <div class="container-fluid text-uppercase">
+                        <div class="container-fluid text-uppercase">
                             <div class="row align-self-center">
                                 <div class="col-2 align-self-center">
                                     <img class="round" src="img/pizza-kurczak.jpg"/>
@@ -100,9 +102,21 @@
                                     </div>
                                 </div>
                                 <div class="col-1 align-self-center">
-                                    <button class="btn btn-success d-flex align-self-center">
-                                        <i class="icon-basket"></i>
-                                    </button>
+                                    <form action="addToCart" method="get" class="d-flex">
+
+                                        <input type="hidden" name="piizaID" value="{{$pizzaData->ID}}">
+                                        <select name="size">
+                                            <option value="" disabled selected></option>
+                                            <option value="sm">M</option>
+                                            <option value="nd">Ś</option>
+                                            <option value="lg">D</option>
+                                        </select>
+
+                                        <button class="ml-10 btn btn-success d-flex align-self-center" type="submit">
+                                            <i class="icon-basket"></i>
+                                        </button>
+                                    
+                                    </form>
                                 </div>
                             </div>
                         
@@ -148,8 +162,7 @@
                         <span>&copy: Wszelkie prawa zastrzeżone</span>
                     </footer>
                 </div>
+            </div>
 
-            
-                
     </body>
 </html>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\Database;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\User;
+use App\Http\Controllers\Basket;
 
     if(session_status() == PHP_SESSION_NONE)
         session_start();
@@ -48,6 +49,10 @@ Route::get('/register', function(){
     return view('register');
 });
 
+Route::get('/myCart', function(){
+    return view('cart', ['role'=>$this->role]);
+});
+
 Route::get('/registerUserByAdmin', function(){
     return view('registerAdmin', ['role'=>$this->role]);
 });
@@ -70,4 +75,5 @@ Route::get('/deletePizza', [Database::class, 'deletePizza'] );
 
 Route::get('/addPizza', [Database::class, 'addNewPizza'] );
 
+Route::get('/addToCart', [Basket::class, 'addToCart'] );
     

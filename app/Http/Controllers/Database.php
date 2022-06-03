@@ -11,7 +11,7 @@ class Database extends Controller{
     public function validateNewPizza(Request $val){
         $val->validate(
             [
-                'pizzaName'=>'required|regex:"^[\sa-zA-Z]+$"|min:5|max:20|unique:pizza,Nazwa_pizzy, '. $_GET['pizzaID'],
+                'pizzaName'=>'required|regex:"^[\sa-zA-Z]+$"|min:5|max:20|unique:pizza,Nazwa_pizzy, '. isset($_GET['pizzaID']),
                 'ingrids'=>'required|regex:"^[\sa-zA-Z,]+$"|min:5|max:200',
                 'price'=>['required','regex:/^([1-9][0-9]*|0)(\.[0-9]{2})?$/'],
             ],
@@ -26,7 +26,7 @@ class Database extends Controller{
 
     public function showPizza(){
         $this->getSessionParams();
-        $pizza = DB::table('pizza')->paginate(1);
+        $pizza = DB::table('pizza')->paginate(5);
 
         return view('/menu', compact('pizza'), ['role'=>$this->role]);
     }
