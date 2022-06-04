@@ -14,6 +14,9 @@
         <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="stylesheet" href="css/css/fontello.css" type="text/css">
+
+        
+
     </head>
     <body class="bg-light">
             <div class="page-wrapper with-navbar">
@@ -66,6 +69,7 @@
                 <div class="mt-50 d-flex flex-column">
                     <div class="content">
                         <h1 class="content-title ml-5 font-size-36">Menu</h1>
+                        @isset($success)<div>{{$success}}</div>@endif
                     </div>
                     @foreach($pizza as $pizzaData)
                     <div class="card d-flex mt-10 shadow">
@@ -104,12 +108,12 @@
                                 <div class="col-1 align-self-center">
                                     <form action="addToCart" method="get" class="d-flex">
 
-                                        <input type="hidden" name="piizaID" value="{{$pizzaData->ID}}">
+                                        <input type="hidden" name="pizzaID" value="{{$pizzaData->ID}}">
                                         <select name="size">
                                             <option value="" disabled selected></option>
-                                            <option value="sm">M</option>
-                                            <option value="nd">Ś</option>
-                                            <option value="lg">D</option>
+                                            <option value="M">M</option>
+                                            <option value="S">S</option>
+                                            <option value="D">D</option>
                                         </select>
 
                                         <button class="ml-10 btn btn-success d-flex align-self-center" type="submit">

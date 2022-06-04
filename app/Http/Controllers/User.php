@@ -124,6 +124,7 @@ class User extends Controller
         $this->getSessionParams();
 
         DB::table('klienci')->where('ID_klienta','=', $this->ID)->delete();
+        session()->flush();
 
         return redirect()->route('logout');
 

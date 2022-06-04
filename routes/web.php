@@ -49,10 +49,6 @@ Route::get('/register', function(){
     return view('register');
 });
 
-Route::get('/myCart', function(){
-    return view('cart', ['role'=>$this->role]);
-});
-
 Route::get('/registerUserByAdmin', function(){
     return view('registerAdmin', ['role'=>$this->role]);
 });
@@ -76,4 +72,14 @@ Route::get('/deletePizza', [Database::class, 'deletePizza'] );
 Route::get('/addPizza', [Database::class, 'addNewPizza'] );
 
 Route::get('/addToCart', [Basket::class, 'addToCart'] );
+
+Route::get('/remove', [Basket::class, 'removeFromCart'] );
+
+Route::get('/decrement', [Basket::class, 'decrement'] );
+
+Route::get('/increment', [Basket::class, 'increment'] );
+
+Route::get('/myCart', function(){
+    return view('cart', ['role'=>$this->role]);
+})->name('cart');
     

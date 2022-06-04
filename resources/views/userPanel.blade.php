@@ -57,6 +57,8 @@
 
                         @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15">{{$role}}</button>@endif
 
+                        @isset($role)<button onclick="location='myCart'" class="btn btn-primary ml-auto mr-15"><i class="icon-basket"></i></button>@endif
+
                         @if($role != "Admin") <button onclick="deleteConfirm()" class="btn btn-primary mr-15">Usuń konto</button>@endif
                         
                         @if(isset($role))<button onclick="location='logout'" class="btn btn-primary text-white ml-auto mr-15">
