@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Routing\Redirector;
+
 
 class User extends Controller
 {
@@ -124,7 +124,9 @@ class User extends Controller
         $this->getSessionParams();
 
         DB::table('klienci')->where('ID_klienta','=', $this->ID)->delete();
-        session()->flush();
+        
+        
+        
 
         return redirect()->route('logout');
 

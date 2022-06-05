@@ -31,7 +31,7 @@ use App\Http\Controllers\Basket;
 
 Route::get('/', function () {
     return view('main', ['role'=>$this->role]);
-});
+})->name('main');
 
 Route::get('/registerUser', [Register::class, 'registerUser'] );
 
@@ -75,9 +75,9 @@ Route::get('/addToCart', [Basket::class, 'addToCart'] );
 
 Route::get('/remove', [Basket::class, 'removeFromCart'] );
 
-Route::get('/decrement', [Basket::class, 'decrement'] );
+Route::get('/updateQty', [Basket::class, 'updateQty'] );
 
-Route::get('/increment', [Basket::class, 'increment'] );
+Route::get('/order', [Basket::class, 'order'] );
 
 Route::get('/myCart', function(){
     return view('cart', ['role'=>$this->role]);

@@ -124,7 +124,7 @@
                         </div>
                 </div>
                 
-                <div class="d-flex">
+                <div class="d-flex position-fixed bottom-0 w-full">
                     <footer class="pl-20 bg-dark-light w-full text-white font-weight-semi-bold">
                         <span>&copy: Wszelkie prawa zastrzeżone</span>
                     </footer>

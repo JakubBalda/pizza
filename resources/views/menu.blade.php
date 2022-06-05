@@ -50,7 +50,7 @@
 
                         @isset($role)<button onclick="location='myCart'" class="btn btn-primary ml-auto mr-15"><i class="icon-basket"></i></button>@endif
 
-                        @isset($role)<button onclick="location='userPanel'" class="btn btn-primary ml-auto mr-15">{{$role}}</button>@endif
+                        @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15"><i class="icon-user"> {{$role}}</i></button>@endif
                     
                         @if(!isset($role))<button onclick="location='login'" class="btn btn-primary text-white ml-auto mr-15">
                             <i class="icon-login"> Zaloguj się</i>
@@ -161,7 +161,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex">
+                <div class="d-flex position-fixed bottom-0 w-full">
                     <footer class="pl-20 bg-dark-light w-full text-white font-weight-semi-bold">
                         <span>&copy: Wszelkie prawa zastrzeżone</span>
                     </footer>

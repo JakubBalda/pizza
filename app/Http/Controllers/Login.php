@@ -59,6 +59,7 @@ class Login extends Controller
                 session_start();
 
         session_destroy();
+        session()->flush();
 
         return view('main');
     }

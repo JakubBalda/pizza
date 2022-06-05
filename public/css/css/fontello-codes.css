@@ -5,5 +5,8 @@
 .icon-mail:before { content: '\e803'; } /* '' */
 .icon-logout:before { content: '\e804'; } /* '' */
 .icon-user:before { content: '\e805'; } /* '' */
+.icon-plus:before { content: '\e806'; } /* '' */
+.icon-minus:before { content: '\e807'; } /* '' */
 .icon-user-plus:before { content: '\f234'; } /* '' */
+.icon-user-times:before { content: '\f235'; } /* '' */
 .icon-facebook-squared:before { content: '\f30e'; } /* '' */

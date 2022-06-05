@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 
-
 class Basket extends Controller{
 
     
@@ -70,7 +69,6 @@ class Basket extends Controller{
                 }
 
                 $basket[$basketID] = [
-                    
                     "ID" => $pid,
                     "name" => $pizzaData->Nazwa_pizzy,
                     "qty" => 1,
@@ -99,35 +97,50 @@ class Basket extends Controller{
         return redirect()->back();
     }
 
-    public function decrement(){
-        $basketID = $_GET['size'].$_GET['pizzaID'];
+    public function updateQty(Request $request){
+
+        $basketID = $request->basketID;
 
         $basket = session()->get('basket');
-
-        if(isset($basket[$basketID])){
-            $basket[$basketID]['qty']--;
-
-            if($basket[$basketID]['qty'] == 0)
-                unset($basket[$basketID]);    
-        }
-
-        session()->put('basket', $basket);
         
-        return redirect()->back();
+        if(isset($basket[$basketID])){
+            $basket[$basketID]['qty'] = $request->qty;
+
+                if($request->qty == 0){
+                    unset($basket[$basketID]);
+                }
+            session()->put('basket', $basket); 
+            return response()->json(['success'=>'New qty']); 
+        }
+        
     }
 
-    public function increment(){
-        $basketID = $_GET['size'].$_GET['pizzaID'];
-
+    public function order(){
+        $this->getSessionParams();
         $basket = session()->get('basket');
 
-        if(isset($basket[$basketID])){
-            $basket[$basketID]['qty']++;   
-        }
+        DB::table('zamowienia')->insert([
+            'Data_zamowienia'=> date("Y-m-d"),
+            'Cena'=> $_GET['sum'],
+            'Klient'=> $this->ID
+        ]);
 
-        session()->put('basket', $basket);
+        $orderId = DB::table('zamowienia')->select('ID_zamowienia')->orderBy('ID_zamowienia', 'DESC')->first();
+
+        foreach($orderId as $oID){
+            foreach($basket as $bid=>$data){
+
+                DB::table('zamowienia_pizza')->insert([
+                    'ID_zamowienia'=> $oID,
+                    'ID_pizzy'=> $data['ID'],
+                    'Rozmiar'=> $data['size'],
+                    'Ilosc'=> $data['qty'],
+                ]);
+        }
+        }
+        session()->flush();
+        return redirect()->route('main');
         
-        return redirect()->back();
     }
     
 }

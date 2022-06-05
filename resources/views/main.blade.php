@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="d-flex">
-                        @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15">{{$role}}</button>@endif
+                        @isset($role)<button onclick="location='userPanel'" class="btn btn-primary mr-15"><i class="icon-user"> {{$role}}</i></button>@endif
 
                         @isset($role)<button onclick="location='myCart'" class="btn btn-primary ml-auto mr-15"><i class="icon-basket"></i></button>@endif
                         
@@ -119,6 +119,7 @@
                                         <div>Darmowa dostawa: 120 zł</div>
                                         <div>Płatność: Gotówka, karta płatnicza, przelew, BLIK</div>
                                         <a href="{{ url('/menu') }}"><button class="btn btn-primary mt-20">Zamów</button></a>
+                                        @isset($value){{$value}}@endif
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex">
+                <div class="d-flex position-fixed bottom-0 w-full">
                     <footer class="pl-20 bg-dark-light w-full text-white font-weight-semi-bold">
                         <span>&copy: Wszelkie prawa zastrzeżone</span>
                     </footer>
