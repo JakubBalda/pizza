@@ -79,6 +79,8 @@ Route::get('/updateQty', [Basket::class, 'updateQty'] );
 
 Route::get('/order', [Basket::class, 'order'] );
 
+Route::get('/sort', [Database::class, 'sortMenu'] );
+
 Route::get('/myCart', function(){
     return view('cart', ['role'=>$this->role]);
 })->name('cart');

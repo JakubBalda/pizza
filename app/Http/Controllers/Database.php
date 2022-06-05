@@ -24,9 +24,17 @@ class Database extends Controller{
         );
     }
 
+    public function sortMenu(Request $request){
+        $this->getSessionParams();
+        $pizza = DB::table('pizza')->orderBy('ID', $request->sort)->paginate(5);
+
+        return view('menu', compact('pizza'), ['role'=>$this->role]);
+    }
+
     public function showPizza(){
         $this->getSessionParams();
-        $pizza = DB::table('pizza')->paginate(5);
+
+            $pizza = DB::table('pizza')->paginate(5);
 
         return view('/menu', compact('pizza'), ['role'=>$this->role]);
     }
@@ -49,7 +57,6 @@ class Database extends Controller{
 
         $user = DB::table('klienci')->where('ID_klienta', '=',$this->ID)->get();
         
-
         return view('/userPanel', ['role'=>$this->role, 'user'=>$user]);
     }
 
@@ -105,6 +112,7 @@ class Database extends Controller{
 
         return redirect()->route('menu');
     }
+
     public function deletePizza(){
         $this->getSessionParams();
 

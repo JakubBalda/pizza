@@ -14,8 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link rel="stylesheet" href="css/css/fontello.css" type="text/css">
-
-        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     </head>
     <body class="bg-light">
@@ -58,10 +57,7 @@
                             <i class="icon-login"> Wyloguj się</i>
                         </button>@endif
                     </div>
-
                 </nav>
-
-                
             </div>
 
             <div class="content-wrapper">
@@ -69,7 +65,14 @@
                 <div class="mt-50 d-flex flex-column">
                     <div class="content">
                         <h1 class="content-title ml-5 font-size-36">Menu</h1>
-                        @isset($success)<div>{{$success}}</div>@endif
+                        Sortuj:
+                        <form action="sort" method="get">
+                            <select name="sort">
+                                <option value="ASC">Rosnąco</option>
+                                <option value="DESC">Malejąco</option>
+                            </select>
+                            <button type="submit" class="ml-5 btn btn-primary">Zatwierdź</button>
+                        </form>
                     </div>
                     @foreach($pizza as $pizzaData)
                     <div class="card d-flex mt-10 shadow">
