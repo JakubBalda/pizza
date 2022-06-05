@@ -65,9 +65,10 @@
                 <div class="mt-50 d-flex flex-column">
                     <div class="content">
                         <h1 class="content-title ml-5 font-size-36">Menu</h1>
-                        Sortuj:
+                        Sortuj po ID:
                         <form action="sort" method="get">
                             <select name="sort">
+                                <option value="" selected disabled></option>
                                 <option value="ASC">Rosnąco</option>
                                 <option value="DESC">Malejąco</option>
                             </select>
