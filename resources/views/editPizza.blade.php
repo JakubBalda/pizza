@@ -167,12 +167,12 @@
                                         </div>
                                         <input type="submit" class="btn btn-primary " value="Dodaj">
                                     </form>
-                                    @isset(session('mess'))
+                                    <?php
+                                        $info = session()->get('mess');
+                                    ?>
+                                    @if($info)
                                         <div class="mt-10"><b> 
-                                            <?php 
-                                                $info = session()->get('mess');
-                                                echo $info;
-                                            ?>
+                                            {{$info}}
                                     </b></div>@endif
                                     @if($errors->any())<div class="mt-10"><b>@foreach($errors->all() as $err) <li>{{$err}}</li> @endforeach</b></div>@endif
                             </div>
