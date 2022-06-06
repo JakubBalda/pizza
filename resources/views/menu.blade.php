@@ -75,6 +75,12 @@
                             <button type="submit" class="ml-5 btn btn-primary">Zatwierdź</button>
                         </form>
                     </div>
+                    <?php
+                        $p = session()->pull('pizza');
+                        if($p){
+                            $pizza = $p;
+                        }
+                    ?>
                     @foreach($pizza as $pizzaData)
                     <div class="card d-flex mt-10 shadow">
                         <div class="container-fluid text-uppercase">
@@ -131,9 +137,11 @@
                         </div>
                     </div>
                     @endforeach
+                    @if(!$p)
                     <span>
                         {{$pizza->links("pagination::bootstrap-4")}}
                     </span>
+                    @endif
                 </div>
 
                 <div id="kontakt" class="d-flex w-full h-150 bg-dark-light text-light">

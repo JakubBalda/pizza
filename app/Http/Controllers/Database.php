@@ -26,15 +26,21 @@ class Database extends Controller{
 
     public function sortMenu(Request $request){
         $this->getSessionParams();
-        $pizza = DB::table('pizza')->orderBy('ID', $request->sort)->paginate(5);
+        $pizza = DB::table('pizza')->orderBy('ID', $request->sort)->get();
+            session()->put('pizza', $pizza);
 
-        return view('menu', compact('pizza'), ['role'=>$this->role]);
+        return redirect()->route('menu');
+
+        //return view('menu', compact('pizza'), ['role'=>$this->role]);
     }
 
-    public function showPizza(){
+    public function showPizza(Request $request){
         $this->getSessionParams();
 
-            $pizza = DB::table('pizza')->paginate(5);
+            if(!isset($request->pizza))
+                $pizza = DB::table('pizza')->paginate(5);
+            else
+                $pizza = $request->pizza;
 
         return view('/menu', compact('pizza'), ['role'=>$this->role]);
     }
@@ -109,8 +115,8 @@ class Database extends Controller{
             'Skladniki'=> $_GET['ingrids'],
             'Cena'=> $_GET['price']
         ]);
-
-        return redirect()->route('menu');
+        
+        return redirect()->back()->with('mess', 'Pizza dodana poprawnie!');
     }
 
     public function deletePizza(){
