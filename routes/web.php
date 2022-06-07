@@ -33,55 +33,70 @@ Route::get('/', function () {
     return view('main', ['role'=>$this->role]);
 })->name('main');
 
-Route::get('/registerUser', [Register::class, 'registerUser'] );
-
 Route::get('/menu', [Database::class, 'showPizza'] )->name('menu');
 
-Route::get('/loginSession', [Login::class, 'login']);
+if(!isset($this->role)){
+    Route::get('/registerUser', [Register::class, 'registerUser'] );
 
-Route::get('/logout', [Login::class, 'logout'])->name('logout');
+    Route::get('/login', function(){
+        return view('login');
+    });
 
-Route::get('/login', function(){
-    return view('login');
-});
+    Route::get('/loginSession', [Login::class, 'login']);
 
-Route::get('/register', function(){
-    return view('register');
-});
+    Route::get('/register', function(){
+        return view('register');
+    });
+}
 
-Route::get('/registerUserByAdmin', function(){
-    return view('registerAdmin', ['role'=>$this->role]);
-});
+if(isset($this->role)){
 
-Route::get('/userPanel', [Database::class, 'getUserData'] );
+    Route::get('/logout', [Login::class, 'logout'])->name('logout');
 
-Route::get('/editUserData', [User::class, 'editUserData'] );
+    Route::get('/userPanel', [Database::class, 'getUserData'] );
 
-Route::get('/editUserPassword', [User::class, 'editUserPassword'] );
+    Route::get('/editUserData', [User::class, 'editUserData'] );
 
-Route::get('/deleteAccount', [User::class, 'deleteAccount'] );
+    Route::get('/editUserPassword', [User::class, 'editUserPassword'] );
 
-Route::get('/editPizza', [Database::class, 'getPizzaNames'] )->name('editPizza');
+    Route::get('/deleteAccount', [User::class, 'deleteAccount'] );
 
-Route::get('/getSelectedPizza', [Database::class, 'getSelectedPizza'] );
+    Route::get('/addToCart', [Basket::class, 'addToCart'] );
 
-Route::get('/editPizzaData', [Database::class, 'editPizzaData'] );
+    Route::get('/remove', [Basket::class, 'removeFromCart'] );
 
-Route::get('/deletePizza', [Database::class, 'deletePizza'] );
+    Route::get('/updateQty', [Basket::class, 'updateQty'] );
 
-Route::get('/addPizza', [Database::class, 'addNewPizza'] );
+    Route::get('/order', [Basket::class, 'order'] );
 
-Route::get('/addToCart', [Basket::class, 'addToCart'] );
+    Route::get('/myCart', function(){
+        return view('cart', ['role'=>$this->role]);
+    })->name('cart');
+}else{
+    
+}
 
-Route::get('/remove', [Basket::class, 'removeFromCart'] );
+if(isset($this->role) && $this->role == 'Admin'){
 
-Route::get('/updateQty', [Basket::class, 'updateQty'] );
+    Route::get('/registerUserByAdmin', function(){
+        return view('registerAdmin', ['role'=>$this->role]);
+    });
 
-Route::get('/order', [Basket::class, 'order'] );
+    Route::get('/editPizza', [Database::class, 'getPizzaNames'] )->name('editPizza');
+
+    Route::get('/getSelectedPizza', [Database::class, 'getSelectedPizza'] );
+
+    Route::get('/editPizzaData', [Database::class, 'editPizzaData'] );
+
+    Route::get('/deletePizza', [Database::class, 'deletePizza'] );
+
+    Route::get('/addPizza', [Database::class, 'addNewPizza'] );
+    }
+
+
+
 
 Route::get('/sort', [Database::class, 'sortMenu'] );
 
-Route::get('/myCart', function(){
-    return view('cart', ['role'=>$this->role]);
-})->name('cart');
+
     
